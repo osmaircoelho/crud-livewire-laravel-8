@@ -16,4 +16,13 @@ class Index extends Component
 
         return view('livewire.book.index', [ "books" => $books ] );
     }
+
+    public function deleteBook($id)
+    {
+        Book::whereId($id)->first()->delete();
+        /*$this->books = Book::all();
+        $this->books = $this->books->filter( function($item)  use ($id) {
+            return $item->id != $id;
+        });*/
+    }
 }
