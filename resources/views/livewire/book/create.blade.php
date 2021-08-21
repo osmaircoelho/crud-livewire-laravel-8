@@ -4,7 +4,7 @@
             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="name">
                 Name
             </label>
-            <input wire:model="book.name" class="appearance-none block w-full bg-gray-100 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" type="text" id="name" />
+            <input wire:model="book.name" autofocus class="appearance-none block w-full bg-gray-100 text-gray-700 border rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" type="text" id="name" />
             @if($errors->has('book.name'))
                 <p class="text-red-500 text-xs italic">
                     {{ $errors->first('book.name') }}

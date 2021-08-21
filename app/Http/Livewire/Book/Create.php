@@ -12,7 +12,7 @@ class Create extends Component
 
     protected $rules = [
         'book.name' => 'required|string',
-        'book.author' => 'required|integer',
+        'book.author' => 'required|string',
         'book.pages' => 'required|integer',
     ];
 
@@ -55,6 +55,7 @@ class Create extends Component
     {
         $this->validate();
         book::create($this->book->toArray());
+        session()->flash('message', 'Book registered successfully');
         return redirect()->route('books.index');
     }
 }
