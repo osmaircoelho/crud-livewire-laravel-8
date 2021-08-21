@@ -9,6 +9,7 @@ class Create extends Component
 {
 
     public Book $book;
+
     protected $rules = [
         'book.name' => 'required|string',
         'book.author' => 'required|integer',
