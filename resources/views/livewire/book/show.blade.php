@@ -19,7 +19,7 @@
     </table>
 
     <div class="max-w-7xl mx-auto mt-8">
-        <a href="{{ route('books.index') }}"
+        <a href="{{  url()->previous()  }}"
            class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded">
             Back
         </a>
