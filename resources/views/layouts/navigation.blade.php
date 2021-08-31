@@ -16,6 +16,19 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
+
+                <!-- show current branch -->
+                @if( config('app.env') === 'local' )
+                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <div class="hidden sm:flex sm:items-center sm:ml-4">
+                            <h1 class="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium
+                                       leading-5 text-gray-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700
+                                       focus:border-gray-300 transition duration-150 ease-in-out bg-blend-color-dodge bg-green-200">
+                                <?= trim( shell_exec('git rev-parse --abbrev-ref HEAD') );?>
+                            </h1>
+                        </div>
+                </div>
+                @endif
             </div>
 
             <!-- Settings Dropdown -->

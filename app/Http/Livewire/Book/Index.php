@@ -10,6 +10,9 @@ class Index extends Component
 {
     use WithPagination;
 
+    public bool $saved = false;
+
+
     public function render()
     {
         $books = Book::OrderBy('id','desc')->paginate();
@@ -20,9 +23,13 @@ class Index extends Component
     public function deleteBook($id)
     {
         Book::whereId($id)->first()->delete();
-        /*$this->books = Book::all();
+
+       /* $this->books = Book::OrderBy('id','desc')->paginate();
+
         $this->books = $this->books->filter( function($item)  use ($id) {
             return $item->id != $id;
         });*/
+
+        session()->flash('message', 'Book deleted successfully');
     }
 }

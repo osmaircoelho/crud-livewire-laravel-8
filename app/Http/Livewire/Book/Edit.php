@@ -14,7 +14,7 @@ class Edit extends Component
         return view('livewire.book.edit');
     }
 
-    protected $rules = [
+    protected array $rules = [
             'book.name' => 'required|string',
             'book.pages' => 'required|int',
             'book.author'=> 'required|string'
@@ -30,7 +30,16 @@ class Edit extends Component
     {
         $this->validate();
         $this->book->update( $this->book->toArray() );
-        session()->flash('message', 'Book name ' .$this->book->name .' and id '.$this->book->id.' updated successfully!');
+        //$this->saved = true;
+        session()->flash('message', 'Book name ' .$this->book->name .' and ID '.$this->book->id.' updated successfully!');
         return redirect()->route('books.index');
+    }
+
+    public function updated( $field)
+    {
+       /* dd($field);
+        if ($field !== "saved"){
+            $this->saved = false;
+        }*/
     }
 }
